@@ -25,16 +25,16 @@ export default function ExpandableCardDemo() {
   const getSkipDescription = (item: SkipHireItem) => {
     if (!item.allowed_on_road) {
       return (
-        <span className="block sm:inline">
-          {item.hire_period_days} days hire
-          <span className="block sm:inline sm:before:content-['_•_']">
+        <>
+          {item.hire_period_days} days hire{' '}
+          <span className="sm:before:content-['_•_']">
             Not allowed on the road
           </span>
-        </span>
+        </>
       );
     }
 
-    return `${item.hire_period_days} days hire`;
+    return <>{item.hire_period_days} days hire</>;
   };
 
   const getCtaText = (item: SkipHireItem) => {
@@ -232,17 +232,17 @@ export default function ExpandableCardDemo() {
               : 'hover:bg-[#262626] dark:hover:bg-neutral-800'
               }`} // era 
           >
-            <div className="">
+            <div className="flex flex-col items-center md:flex-row md:items-center gap-4">
               <motion.div layoutId={`image-${getSkipTitle(item)}-${id}`}>
                 <img
                   width={100}
                   height={100}
                   src={getSkipImage(item.size)}
                   alt={getSkipTitle(item)}
-                  className="h-40 w-40 md:h-20 md:w-20 lg:h-24 lg:w-24 rounded-lg object-cover object-top" // adăugat lg:h-24 lg:w-24
+                  className="h-40 w-40 md:h-20 md:w-20 lg:h-24 lg:w-24 rounded-lg object-cover object-top"
                 />
               </motion.div>
-              <div className="">
+              <div>
                 <motion.h3
                   layoutId={`title-${getSkipTitle(item)}-${id}`}
                   className="font-medium text-neutral-300 dark:text-neutral-200 text-center md:text-left"
